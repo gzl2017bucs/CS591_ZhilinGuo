@@ -1,0 +1,53 @@
+Zhilin Guo
+
+Part 1: Introduction Sequence
+1.
+$ git commit
+$ git commit
+
+2.
+$ git branch bugFix
+$ git checkout bugFix
+
+3.
+$ objective
+$ git branch bugFix
+$ git checkout bugFix
+$ git commit
+$ git checkout master
+$ git commit
+$ git merge bugFix
+
+4.
+$ git checkout -b bugFix
+$ git commit
+$ git checkout master
+$ git commit
+$ git checkout bugFix
+$ git rebase master
+
+Part 2: Ramping Up
+1.
+$ git checkout C4
+
+2.
+$ git checkout c4
+$ git checkout HEAD^
+
+3.
+$ git checkout C1
+$ git branch -f master c6
+$ show goal
+$ git branch -f bugFix c0
+
+4.
+$ git reset local~1
+$ git checkout pushed
+$ git revert pushed
+
+Part 3: Moving Work Around
+1.
+$ git cherry-pick c3 c4 c7
+
+2.
+$ git rebase -i master~4
