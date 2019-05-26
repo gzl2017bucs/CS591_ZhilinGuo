@@ -48,3 +48,5 @@ const functionExecute = (aString, aFunction) => {
 }
 
 console.log(functionExecute('abcdefg', aString => aString.toUpperCase()));
+
+console.log('a'=='A');
