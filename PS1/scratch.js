@@ -1,3 +1,6 @@
+//DO NOT GRADE
+//For scratching only
+
 
 //example function
 //const biggie = items => Math.max(...items);

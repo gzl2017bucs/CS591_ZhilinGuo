@@ -9,6 +9,8 @@ const functionExecute = (aString, aFunction) => {
 
 let string1 = 'supercalifragilisticexpialidocious';
 
+// This expression calls the function above to take in a string and use it with a lambda function to split the string on
+// letter c, where the letter c is kept in the second part of the splitted string
 let expression1 = functionExecute (string1, aString => {
     let temp = aString.split('c');
     if (temp.length > 1) {
@@ -20,21 +22,25 @@ let expression1 = functionExecute (string1, aString => {
 })
 console.log (expression1);
 
+// This expression calls the function above to take in a string and use it with a lambda function to replace all letter
+// a's with capital letter A, and outputs an object as the expression
 let expression2 = functionExecute(string1, aString => {
-    let original = string1;
-    let stringLength = string1.length;
-    let stringSplitted = string1.split('');
+    let original = aString;
+    let stringLength = original.length;
+    let stringSplitted = aString.split('');
     let numReplaced = 0;
+    // replace a's with A's
     for (let i = 0; i < stringLength; i++){
         if (stringSplitted[i] == 'a'){
             stringSplitted[i] = 'A';
             numReplaced += 1;
         }
     }
-    string1 = stringSplitted.join('');
+    aString = stringSplitted.join('');
+    // construct and return the object
     return {
         originalString: original,
-        modifiedString: string1,
+        modifiedString: aString,
         numberReplaced: numReplaced,
         length: stringLength
     }
