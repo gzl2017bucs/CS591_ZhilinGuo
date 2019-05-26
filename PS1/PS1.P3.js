@@ -9,5 +9,9 @@ const functionExecute = (aString, aFunction) => {
 
 let string1 = 'supercalifragilisticexpialidocious';
 
-let expression1 = functionExecute (string1, )
-console.log (string1.split('c'))
+let expression1 = functionExecute (string1, aString => {
+    let temp = aString.split('c');
+    
+    return temp;
+})
+console.log (expression1)
