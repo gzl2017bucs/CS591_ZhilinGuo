@@ -1,3 +1,4 @@
+
 //example function
 //const biggie = items => Math.max(...items);
 //console.log(`Biggest int is: ${biggie([4,8,1,4,3,9,2])}`)
@@ -27,18 +28,23 @@
 // temp = temp.join('');
 // console.log(temp);
 
+//
+// const evaluate = inputString => {
+//     return (left, right) => left + right;
+// }
+//
+// const expression = '4+2';
+// let operator = (left, right) => left + right;
+//
+// console.log(operator);
+//
+// console.log(`${operator}`);
+// //console.log(`${expression} = ${operator(expression)}`);
+//
+// console.log(parseInt(expression[0], 10) + parseInt(expression[2], 10))
 
-const evaluate = inputString => {
-    return (left, right) => left + right;
+const functionExecute = (aString, aFunction) => {
+    return aFunction(aString);
 }
 
-const expression = '4+2';
-let operator = (left, right) => left + right;
-
-console.log(operator);
-
-console.log(`${operator}`);
-//console.log(`${expression} = ${operator(expression)}`);
-
-console.log(parseInt(expression[0], 10) + parseInt(expression[2], 10))
-
+console.log(functionExecute('abcdefg', aString => aString.toUpperCase()));
