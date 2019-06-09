@@ -1,4 +1,7 @@
+# WebStorm
 .idea/
+
+# API keys, etc.
 config/
 
 # Logs
