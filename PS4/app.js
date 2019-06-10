@@ -8,7 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 // my custom PS3 router
-const ps3Router = require('./routes/PS3Router');
+//const ps3Router = require('./routes/PS3Router');
 
 // my custom PS4 router
 const ps4Router = require('./routes/PS4Router');
@@ -30,7 +30,7 @@ app.use('/users', usersRouter);
 app.use('/foo', usersRouter);
 
 // my custom PS3 route
-app.use('/ps3', ps3Router);
+//app.use('/ps3', ps3Router);
 
 // my custom PS4 route
 app.use('/ps4', ps4Router);
