@@ -7,8 +7,11 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-// my custom PS3 route
+// my custom PS3 router
 const ps3Router = require('./routes/PS3Router');
+
+// my custom PS4 router
+const ps4Router = require('./routes/PS4Router');
 
 const app = express();
 
@@ -29,6 +32,8 @@ app.use('/foo', usersRouter);
 // my custom PS3 route
 app.use('/ps3', ps3Router);
 
+// my custom PS4 route
+app.use('/ps4', ps4Router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
