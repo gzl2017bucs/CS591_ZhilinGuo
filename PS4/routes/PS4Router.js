@@ -49,7 +49,8 @@ router.get('/', function(req, res, next) {
 
     })
 
-    let words = 'The name of the employee:';
+    //let words = 'Total number of Steam games that this account owns';
+    let words = 'content returned by API:';
     callAPI.then(result => res.render('ps4get', { string1: words, string2: result.employee_name }))
 
     //test rendering calls for debugging
