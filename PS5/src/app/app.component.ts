@@ -1,14 +1,8 @@
-
-
-
-
-
-
-
-
 import { Component } from '@angular/core';
-import { CONTACTS} from './CONTACTS-MOCK';
-import {CONTACT} from './CONTACT';
+//import { CONTACTS} from './CONTACTS-MOCK';
+//import {CONTACT} from './CONTACT';
+import {RecentlyPlayedGame} from './RecentlyPlayedGame';
+import {RecentlyPlayedGames} from './RecentlyPlayedGames-MOCK';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +10,18 @@ import {CONTACT} from './CONTACT';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CS591 Contacts';
-  contacts = CONTACTS;
-  private selectedContact: CONTACT;
+  title = 'CS591 PS5 - Get Recently Played Game';
+  //contacts = CONTACTS;
+
+  RecentlyPlayedGame = RecentlyPlayedGame;
+  RecentlyPlayedGames = RecentlyPlayedGames;
+  //private selectedContact: CONTACT;
 
 
-  selectContact(contact: CONTACT) {
-    this.selectedContact = contact;
+  // selectContact(contact: CONTACT) {
+  //   this.selectedContact = contact;
+  //
+  // }
 
-  }
+  Math = Math;
 }
