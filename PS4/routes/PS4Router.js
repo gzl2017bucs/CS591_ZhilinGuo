@@ -9,39 +9,32 @@ const ps4config = require('../config/ps4config');
 //import API key and values from config file
 //API documentation at
 //https://developer.valvesoftware.com/wiki/Steam_Web_API
-// const appid = ps4config.appid;
-// const count = ps4config.count;
-// const format = ps4config.format;
-// const maxlength = ps4config.maxlength;
-
-//Current API values
-const APIurl = ps4config.APIurl;
-const APIhost = ps4config.APIhost;
+const APIkey = ps4config.key;
+const APIsteamid = ps4config.steamid;
+const APIformat = ps4config.format;
 
 //GET method for ps4 that uses promise to call a single API and displays the result
 router.get('/', function(req, res, next) {
     const callAPI = new Promise(function (resolve, reject) {
 
         const options = { method: 'GET',
-            url: APIurl,
-            headers:
-                { 'cache-control': 'no-cache',
-                    Connection: 'keep-alive',
-                    'accept-encoding': 'gzip, deflate',
-                    Host: APIhost,
-                    'Postman-Token': '19fe3885-df77-43a2-8757-c4dde3d3a61a,2f016dd9-7be7-4365-9e1d-bc729e5e0b28',
-                    'Cache-Control': 'no-cache',
-                    Accept: '*/*',
-                    'User-Agent': 'PostmanRuntime/7.13.0' } };
+            url: 'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/',
+            qs:
+                {
+                    key: APIkey,
+                    steamid: APIsteamid,
+                    format: APIformat
+                },
+        };
 
         request(options,(error, response, body) => {
             if (error) throw new Error(error);
 
             // parsing returned JSON file
-            let result = JSON.parse(body);
+            let result = body;
 
             //logging parsed JSON file to console
-            console.log (result);
+            console.log (JSON.parse(result));
 
             //return promise object that is resolved with the given value
             resolve(result);
@@ -51,7 +44,7 @@ router.get('/', function(req, res, next) {
 
     //let words = 'Total number of Steam games that this account owns';
     let words = 'content returned by API:';
-    callAPI.then(result => res.render('ps4get', { string1: words, string2: result.employee_name }))
+    callAPI.then(result => res.render('ps4get', { string1: words, string2: JSON.parse(result).response.total_count }))
 
     //test rendering calls for debugging
     // callAPI.then(val => {
