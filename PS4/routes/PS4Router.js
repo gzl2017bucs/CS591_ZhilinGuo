@@ -5,7 +5,6 @@ const request = require("request");
 //import config file
 const ps4config = require('../config/ps4config');
 
-//This API does not work
 //import API key and values from config file
 //API documentation at
 //https://developer.valvesoftware.com/wiki/Steam_Web_API
