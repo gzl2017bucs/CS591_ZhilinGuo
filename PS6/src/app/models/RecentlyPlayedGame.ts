@@ -1,4 +1,3 @@
-
 export class RecentlyPlayedGame {
   appid: number;
   name: string;

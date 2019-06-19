@@ -5,14 +5,29 @@
   </h1>
 </div>
 
+<!--  form and query button-->
+<div>
+  <p>Enter Steam ID to Look Up Recently Played Games</p>
+  <input [(ngModel)]="SteamID" type="number" placeholder="Steam ID" >
+  <button (click)= "submitSteamID()"> Submit </button>
+</div>
+
 <div>
   <ul>
-    <li *ngFor="let RecentlyPlayedGame of RecentlyPlayedGames">
+    <li *ngFor="let RecentlyPlayedGame of currentRecentlyPlayedGames">
       Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}
       hour(s) in two weeks,
       and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
     </li>
   </ul>
-
-
 </div>
+
+<!--<div>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let RecentlyPlayedGame of RecentlyPlayedGames">-->
+<!--      Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}-->
+<!--      hour(s) in two weeks,-->
+<!--      and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->

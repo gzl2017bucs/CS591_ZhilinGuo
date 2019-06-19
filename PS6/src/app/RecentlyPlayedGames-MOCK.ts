@@ -1,6 +1,4 @@
-
-
-import {RecentlyPlayedGame} from './RecentlyPlayedGame';
+import {RecentlyPlayedGame} from './models/RecentlyPlayedGame';
 
 export const RecentlyPlayedGames: RecentlyPlayedGame[] =
   [
