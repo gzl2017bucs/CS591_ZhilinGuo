@@ -11,6 +11,7 @@ import { GetRecentlyPlayedGamesAsyncService } from './services/RecentlyGames-asy
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  // initializing variables
   title = "CS591 PS6 - Search For User's Recently Played Games";
   SteamID: number;
 
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit{
 
   currentRecentlyPlayedGames: RecentlyPlayedGame[];
 
-
+  // method to call service and retrieve recently played games
   submitSteamID(): void {
     let inputSteamID: number = this.SteamID;
     this.recentGamesService.getRecentlyPlayedGames(inputSteamID)
