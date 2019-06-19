@@ -13,20 +13,12 @@ import { GetRecentlyPlayedGamesAsyncService } from './services/RecentlyGames-asy
 export class AppComponent implements OnInit{
   title = "CS591 PS6 - Search For User's Recently Played Games";
   SteamID: number;
-  //contacts = CONTACTS;
 
   RecentlyPlayedGame = RecentlyPlayedGame;
   RecentlyPlayedGames = RecentlyPlayedGames;
 
   currentRecentlyPlayedGames: RecentlyPlayedGame[];
 
-  //private selectedContact: CONTACT;
-
-
-  // selectContact(contact: CONTACT) {
-  //   this.selectedContact = contact;
-  //
-  // }
 
   submitSteamID(): void {
     let inputSteamID: number = this.SteamID;
