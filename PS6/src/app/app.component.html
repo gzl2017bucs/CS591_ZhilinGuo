@@ -22,12 +22,13 @@
   </ul>
 </div>
 
-<!--<div>-->
-<!--  <ul>-->
-<!--    <li *ngFor="let RecentlyPlayedGame of RecentlyPlayedGames">-->
-<!--      Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}-->
-<!--      hour(s) in two weeks,-->
-<!--      and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</div>-->
+<div>
+  <p>Example output:</p>
+  <ul>
+    <li *ngFor="let RecentlyPlayedGame of RecentlyPlayedGames">
+      Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}
+      hour(s) in two weeks,
+      and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
+    </li>
+  </ul>
+</div>
