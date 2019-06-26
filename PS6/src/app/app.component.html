@@ -5,32 +5,34 @@
   </h1>
 </div>
 
-<!--  form and query button-->
 <div>
-  <p>Enter Steam ID to Look Up Recently Played Games</p>
-  <input [(ngModel)]="SteamID" type="number" placeholder="Steam ID" >
-  <button (click)= "submitSteamID()"> Submit </button>
+  <label>Enter Steam ID: <input type="text" [(ngModel)]="SteamID" required>
+    <button (click)="getRecentGames(SteamID)">search</button>
+    to look up recently played games of user.</label>
+
 </div>
 
-<!--display result-->
+<!--output requested by user-->
 <div>
   <ul>
-    <li *ngFor="let RecentlyPlayedGame of currentRecentlyPlayedGames">
-      Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}
+    <li *ngFor="let oneGame of recentGames">
+      Played {{oneGame.name}} for {{Math.round((oneGame.playtime_2weeks / 60) * 10) / 10}}
       hour(s) in two weeks,
-      and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
+      and {{Math.round((oneGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
     </li>
   </ul>
 </div>
 
-<!--sample output-->
+<!--example output-->
 <div>
-  <p>Example output:</p>
   <ul>
-    <li *ngFor="let RecentlyPlayedGame of RecentlyPlayedGames">
-      Played {{RecentlyPlayedGame.name}} for {{Math.round((RecentlyPlayedGame.playtime_2weeks / 60) * 10) / 10}}
+    <label>Sample Outcome:</label>
+    <li *ngFor="let oneGame of mockRecentlyPlayedGames">
+      Played {{oneGame.name}} for {{Math.round((oneGame.playtime_2weeks / 60) * 10) / 10}}
       hour(s) in two weeks,
-      and {{Math.round((RecentlyPlayedGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
+      and {{Math.round((oneGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
     </li>
   </ul>
+
+
 </div>
