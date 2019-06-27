@@ -16,23 +16,10 @@
 <div>
   <ul>
     <li *ngFor="let oneGame of recentGames">
-      Played {{oneGame.name}} for {{Math.round((oneGame.playtime_2weeks / 60) * 10) / 10}}
-      hour(s) in two weeks,
-      and {{Math.round((oneGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
+      User {{oneGame.SteamID}} played {{oneGame.mostPlayedGame2Week}} for {{oneGame.mostPlayedGame2WeekPlayeTime}}
+      hour(s) in two weeks. Most recent news title for this game is "{{oneGame.newsTitleForGame}}". This record was
+      {{oneGame.cached}} cached.
     </li>
   </ul>
 </div>
 
-<!--example output-->
-<div>
-  <ul>
-    <label>Sample Outcome:</label>
-    <li *ngFor="let oneGame of mockRecentlyPlayedGames">
-      Played {{oneGame.name}} for {{Math.round((oneGame.playtime_2weeks / 60) * 10) / 10}}
-      hour(s) in two weeks,
-      and {{Math.round((oneGame.playtime_forever / 60) * 10) / 10}} hour(s) in total.
-    </li>
-  </ul>
-
-
-</div>

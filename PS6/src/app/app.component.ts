@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 // import { CONTACTS} from './CONTACTS-MOCK';
 // import {CONTACT} from './CONTACT';
 import { RecentlyPlayedGame } from './models/RecentlyPlayedGame';
-import { RecentlyPlayedGames } from './RecentlyPlayedGames-MOCK';
 import { GetRecentlyPlayedGamesAsyncService } from './services/RecentlyGames-async.service';
 
 @Component({
@@ -19,8 +18,6 @@ export class AppComponent {
   SteamID: number;
   oneGame = RecentlyPlayedGame;
   recentGames = [];
-  // for showing example output
-  mockRecentlyPlayedGames = RecentlyPlayedGames;
   // for division and rounding
   Math = Math;
 

@@ -1,8 +1,7 @@
 export class RecentlyPlayedGame {
-  appid: number;
-  name: string;
-  playtime_2weeks: number ;
-  playtime_forever: number ;
-  img_icon_url: string;
-  img_logo_url: string;
+  SteamID: string;
+  mostPlayedGame2Week: string;
+  mostPlayedGame2WeekPlayeTime: number;
+  newsTitleForGame: string;
+  cached: string;
 }
