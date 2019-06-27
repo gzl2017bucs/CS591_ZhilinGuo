@@ -76,8 +76,8 @@ router.get('/:SteamID', function(req, res, next) {
         }
     });
 
-    //PUG rendering calls
-    //let words = 'Total number of Steam games that this account owns';
+    // PUG rendering calls
+    // let words = 'Total number of Steam games that this account owns';
     // let words1 = 'Most Played Steam Game in Two Weeks: ';
     // let words2 = 'Play Time in Two Weeks: '
     // recentGames.then(result => res.render('ps8get', {
