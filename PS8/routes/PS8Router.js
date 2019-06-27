@@ -46,7 +46,7 @@ router.get('/:SteamID', function(req, res, next) {
                         SteamID: req.params.SteamID,
                         mostPlayedGame2Week: JSON.parse(result).response.games[0].name,
                         mostPlayedGame2WeekPlayeTime: Math.round(((JSON.parse(result).response.games[0].playtime_2weeks)/60)*10)/10,
-                        newsTitleForGame: 'Placeholder for second API',
+                        newsTitleForGame: 'Placeholder for second API', // for second API
                         cached: 0
                     }
                     // send new document to front end
