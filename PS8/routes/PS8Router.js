@@ -11,6 +11,8 @@ const ps8config = require('../config/ps8config');
 const APIkey = ps8config.key;
 //const APIsteamid = ps8config.steamid;
 const APIformat = ps8config.format;
+const newsCount = ps8config.news_count;
+const newsLength = ps8config.news_length;
 
 // import mongo db
 const db = require('../mongo/mongo');
@@ -40,22 +42,30 @@ router.get('/:SteamID', function(req, res, next) {
             res.send(docs[0]);
         } else { // data is not 'cached' in mongoDB, cache it and send it
             console.log('Document NOT found in MongoDB!');
+            // call the first API to get recently played games
             getRecentGamesFromAPI(req.params.SteamID)
                 .then(function (result) {
-                    // create document in JSON
-                    let currentDocument = {
-                        SteamID: req.params.SteamID,
-                        mostPlayedGame2Week: JSON.parse(result).response.games[0].name,
-                        mostPlayedGame2WeekPlayeTime: Math.round(((JSON.parse(result).response.games[0].playtime_2weeks)/60)*10)/10,
-                        newsTitleForGame: 'Placeholder for second API', // for second API
-                        cached: 'not found'
-                    }
-                    // send new document to front end
-                    res.send(currentDocument);
+                    // call the second API to get the most recent news title for the game
+                    getNewsTitleFromAPI(JSON.parse(result).response.games[0].appid)
+                        .then(function (result2) {
+                            // create document in JSON
+                            let currentDocument = {
+                                SteamID: req.params.SteamID,
+                                mostPlayedGame2Week: JSON.parse(result).response.games[0].name,
+                                mostPlayedGame2WeekPlayeTime: Math.round(((JSON.parse(result).response.games[0].playtime_2weeks) / 60) * 10) / 10,
+                                newsTitleForGame: JSON.parse(result2).appnews.newsitems[0].title,
+                                cached: 'not found'
+                            }
+                            // send new document to front end
+                            res.send(currentDocument);
 
-                    // changes 'cached' field to 1, and cache document into mongoDB
-                    currentDocument.cached = 'found';
-                    mongo.collection('steamusers').insertOne(currentDocument);
+                            // changes 'cached' field to 1, and cache document into mongoDB
+                            currentDocument.cached = 'found';
+                            mongo.collection('steamusers').insertOne(currentDocument);
+                        })
+                        .catch(function (err) {
+                            console.log("Error: ", err);
+                        })
 
                 })
 
@@ -103,6 +113,30 @@ const getRecentGamesFromAPI = function (inputID){
             })
             }
         )
+};
+
+//method to get most recent news title using the second API
+const getNewsTitleFromAPI = function (appID){
+    return new Promise (function (resolve, reject) {
+            const options = { method: 'GET',
+                url: 'http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/',
+                qs: {
+                appid: appID, count: newsCount,  maxlength: newsLength, format: APIformat },
+            };
+            request(options,(error, response, body) => {
+                if (error) {
+                    throw new Error(error);
+                } else {
+                    // parsing returned JSON file
+                    let result = body;
+                    //logging parsed JSON file to console
+                    console.log('Second Steam API called!');
+                    //return promise object that is resolved with the given value
+                    resolve(result);
+                }
+            })
+        }
+    )
 };
 
 
