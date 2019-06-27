@@ -35,10 +35,11 @@ router.get('/:SteamID', function(req, res, next) {
         // test whether SteamID is already in mongoDB
         if (docs.length > 0) { // data is 'cached' in mongoDB, send it
             // print for debugging
-            console.log(docs[0]);
+            console.log('Document found in MongoDB!');
             // send
             res.send(docs[0]);
         } else { // data is not 'cached' in mongoDB, cache it and send it
+            console.log('Document NOT found in MongoDB!');
             getRecentGamesFromAPI(req.params.SteamID)
                 .then(function (result) {
                     // create document in JSON
@@ -95,7 +96,7 @@ const getRecentGamesFromAPI = function (inputID){
                     // parsing returned JSON file
                     let result = body;
                     //logging parsed JSON file to console
-                    console.log(JSON.parse(result));
+                    console.log('First Steam API called!');
                     //return promise object that is resolved with the given value
                     resolve(result);
                 }
