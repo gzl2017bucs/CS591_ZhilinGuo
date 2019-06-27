@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 //const ps3Router = require('./routes/PS3Router');
 
 // my custom PS4 router
-const ps4Router = require('./routes/PS4Router');
+const ps8Router = require('./routes/PS8Router');
 
 const app = express();
 
@@ -33,7 +33,7 @@ app.use('/foo', usersRouter);
 //app.use('/ps3', ps3Router);
 
 // my custom PS4 route
-app.use('/ps4', ps4Router);
+app.use('/ps8', ps8Router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
