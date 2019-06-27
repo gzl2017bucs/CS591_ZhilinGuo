@@ -47,13 +47,13 @@ router.get('/:SteamID', function(req, res, next) {
                         mostPlayedGame2Week: JSON.parse(result).response.games[0].name,
                         mostPlayedGame2WeekPlayeTime: Math.round(((JSON.parse(result).response.games[0].playtime_2weeks)/60)*10)/10,
                         newsTitleForGame: 'Placeholder for second API', // for second API
-                        cached: 0
+                        cached: 'not found'
                     }
                     // send new document to front end
                     res.send(currentDocument);
 
                     // changes 'cached' field to 1, and cache document into mongoDB
-                    currentDocument.cached = 1;
+                    currentDocument.cached = 'found';
                     mongo.collection('steamusers').insertOne(currentDocument);
 
                 })
