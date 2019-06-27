@@ -8,7 +8,7 @@ module.exports = {
 
     connect: function( callback ) {
         mongoClient.connect( mongoURL,  { useNewUrlParser: true }, function( err, client ) {
-            _db  = client.db('passport');
+            _db  = client.db('SteamDB');
             return callback( err );
         } );
     },
